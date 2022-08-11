@@ -9,7 +9,8 @@
 #include <stdio.h>
 
 #include <k4ainternal/logging.h>
-
+#include <new>
+   
 #define CONNEX_CMD_PORT "port"
 #define CONNEX_CMD_VOLTS "volts"
 #define CONNEX_CMD_AMPS "amps"
@@ -87,6 +88,7 @@ static HANDLE OpenComPort(LPCSTR comPort)
 
 connection_exerciser::connection_exerciser()
 {
+    using namespace std;
     state = new (std::nothrow) connection_exerciser_internal_t();
 }
 
